@@ -24,7 +24,7 @@ rankhospital <- function(state, oc, num = "best"){
         break
     }
     x <- srtd[-c(i:n)]
-    nn <- nrow(x)
+    #nn <- nrow(x)
     #rank <- 1:nn
     myList <- list(x$Hospital.Name,x[, cnum])
     tmp <- as.data.frame(myList)
@@ -33,8 +33,8 @@ rankhospital <- function(state, oc, num = "best"){
     if(num == "best")
       num <- 1
     if(num == "worst")
-      num <- nn
-    return(tmp[cnum, 1])
+      num <- nrow(tmp)
+    return(tmp[num, 1])
   }
   else
     print("Invalid Input");
